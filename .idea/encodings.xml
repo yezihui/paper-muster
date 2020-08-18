@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cache" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cache/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cache/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/entity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/entity/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/entity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mapper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mapper/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mapper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/model/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/website-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/website-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/website-api/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

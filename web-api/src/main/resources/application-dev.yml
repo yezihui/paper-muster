@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.101.213.249:3306/letter_guarantee?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://39.101.213.249:3306/paper-muster?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
     username: root
     password: zbh1234mysql
     type: com.zaxxer.hikari.HikariDataSource
@@ -26,7 +26,7 @@ spring:
     lettuce.pool.max-wait: -1ms
 
 server:
-  port: 8088
+  port: 8082
 
 JwtTokenUtil:
   jwtKey: safdsafdsafdsafd

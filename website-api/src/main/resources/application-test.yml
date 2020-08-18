@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/letter_guarantee?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://39.101.213.249:3306/paper-muster?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
     username: root
     password: zbh1234mysql
     type: com.zaxxer.hikari.HikariDataSource
@@ -26,45 +26,7 @@ spring:
     lettuce.pool.max-wait: -1ms
 
 server:
-  port: 8089
-
-ca:
-  url: http://sso.test.lnca.net.cn:2010/ssoworker
-
-third:
-  md5Key: hU8H@@wPc0MN!T08
-  url: https://dev1.frontend.mygctong.com/trade/dalian/apply
-
-rpp:
-  desKey: ztb_dlggzy
-  appKey: ztb
-  url: http://124.93.24.119/TPBidder/BaoHanZtbMis_DL/Pages/GoldKey/CheckInfo.ashx
+  port: 8081
 
 JwtTokenUtil:
   jwtKey: safdsafdsafdsafd
-
-aliyun-oss:
-  end-point: oss-cn-zhangjiakou.aliyuncs.com
-  access-key-id: LTAI4G8S2kRwThi92YuHvAB6
-  access-key-secret: DK4VEzA7BVYSOonjqov1p9QqdMlR3U
-  bucket-type: public-read
-  bucket-name: zbh-test
-  domain-url: https://zbh-test.oss-cn-zhangjiakou.aliyuncs.com/
-
-wxpay:
-  appId: wx33c522cd3a93a2d0
-  mchId: 1600280540
-  mchKey: 60e4037344b30af41ddaf161d08c4dbb
-  notifyUrl: http://39.101.213.249:8089/order/wxpay/pay/notify
-  refundNotifyUrl: http://39.101.213.249:8089/order/wxpay/refund/notify
-
-alipay:
-  appId: 2021001167699464
-  mchId: 2088831713552483
-  privateKey: 'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD8ZL26zXj99J3gsMuu/0yYhQY0FT0bhbr+ANAFzTHtHNERRR/JvWkhV3vOKX2jOu/pT7nhKvaA3OXko8cynC3i4qSeWLUwhLVzd95vVxIAndZGYRhyYhNqICGjZj6Lp33uFqcmyh6wP0NeGW8Q8cEJp9v9KhNH06J8xN+FrvtuU5loCT1SCoCGHeMXUhL56fk6gJRTWeIxzMvqEP4i0mIMqSwRYR/N4fxUSAgFkYSWEDu0wuVuxaXsZFHnGfvhJ18wKKhVii20/3piQHSl3C7FkNEtUTZmrbB3MUY0fQ9l4Q+tMhCeaQCUzr9VWsG0pVt0EoAxGqT13CKk+2O6SJPpAgMBAAECggEBAO+hel30ne6IJKljUk+5RvD8Q7KJg7Yw1yQ4g0ku1DsrA/igp5i0BC/KztojnIyw9X2P24zEbLxWftMBCKytigeDZgaNdKI3LcwOwBr4ETiSoxG5OCvJoGM/VJC+D54qjS7TRSpX9qEhv4WFImV1EvFm9UA9hYbJkdliVlKnm0LXq/uamoM9vHxtn5ns7adxQwUbo4A8OLcQjDWHGUqna7AOG0pKS8ObJopIWLIt5PNBZWxSobnXStBcPMhNfDfWnZ8yx0YrZ4E8SRUjIPId3ug96iVN2BdmIpt1mFSkeYs75XpKoMPrF0PgcPDrMu9ADG25ZIf/sMDt8yhjxSbM8L0CgYEA/7K7u21mUhOLqhR6PgzgAV9SV9MkeGEulC7IbJdPbrTwe5uhLgWEtayPCG3yfU8/f+8/YmypZe4105B08zggI/RfvzE6By4G7pt68IiPIZYuy/ni4+JoB5SxfHC/+7EMMubjgQVIma/wiV/HuiGtu6VRQR+paMavVa9RKGBey1sCgYEA/LECWzdCHI7ko5A7DnQosgxmjbdgp3Yf1vKxVYo1YBFMh12H7tyqElpt0r2npa+14IiLbnObBOjpKwbwQZ/nT66abApg1tPobeKCQ7N0b91SNB9yuh/b8tPTtQDRvfRfwH0OfmxPkRb47N1DQ28xr4Zi330egMMLwTZLt6kUNQsCgYBmlZmVz4VOhoLxAHgurtGsG0cY7x/hn/OlBcPpNSdsHfGhVcXrhdFBZfKYiivQNFwggqbmYPvxZgl4UKtq7OiQJDnJpgFG4iNr1TsUh2UNL4ik0yNBFBNyfyhZ6Y5MdzKStWku2STQa/LP2npx5ZMjBmc7/mzkGVo8wTKJRWiiowKBgB0+21f1SEiH3Tx09/DPTtp0hvYF8EDRchPtmMqeqVjKB8Ju98mUbnabUrSeUKXjdThcdU6+QIXL8xiQwAPIXvwg6Cxy8wxKEE+PdKYjQemkgtwXe67A+zLag1kilCPZAbAEiUXmgTr4nqzDWwKV/vkio5TcJUifyl99SjwibH1LAoGBAMAS6ZWSDaH1xsbwWz5J0X7cqZ+OS96xbNCM5pb7xCobE4Dd7Ln3RaH+6YRDJeOk4uFcKLa/CSpWoHnVsArR0jWpiakWncBRDWuHOfjdrvpI3Sushtb3+UgBywT1uOhgSGMHrhnYBopPc0A/h8vylEYZMeqfdueMIg8UXUG3mJ24'
-  alipayPublicKey: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnboR4GBrNyrIPWIFfneGv7kmB65wnXnhP09GzcG6D/7V44klIvjORNVSvv3FntYTXS2HKbTcNGhMI265nwQYNCcHm430ww+wj6Oatw/GMCA5FXTfuV4prqtgCEKXwSY2/JTQmMmbK0EQgG6U7GbVvCGhLaYE8fM0k4lFtOxY5iQKBqw0EOPtmm787uVAPE+/b9zmNDg2IJAACfzJ4JHcXVlz4HC10lHSk8bkdi/wqsXPgVx+KCIBWyL0FENzHjF0sQHDSeAgSfgFLG9GnpopqkWbQsjhaUHAW/FlsG2/F2Uw5NorZ6Iw9UWi7rkCuusIX1HaosuteNmQ/dz46EcyCwIDAQAB'
-  notifyUrl: http://39.101.213.249:8089/order/alipay/async/notify
-
-# 订单超时时间 120分钟
-order:
-  timeout: 120
