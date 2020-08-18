@@ -10,6 +10,7 @@ import com.pm.common.exception.ServiceException;
 import com.pm.entity.web.WebUserEntity;
 import com.pm.model.web.ro.AuthPwdDto;
 import com.pm.model.web.ro.LoginRo;
+import com.pm.web.bean.UserResource;
 import com.pm.web.bean.WebLoginUser;
 import com.pm.web.context.LoginContext;
 import com.pm.web.context.LoginUserService;
@@ -131,5 +132,19 @@ public class WebUserServiceImpl extends ServiceImpl<WebUserMapper, WebUserEntity
         baseMapper.updateById(updateEntity);
         // 强制下线重新登录
         LoginContext.me().getLoginUserService().removeToken(webLoginUser.getAccessToken());
+    }
+
+    @Override
+    public UserResource getUserResources() {
+        WebLoginUser webLoginUser = LoginContext.me().getLoginUser();
+        WebUserEntity user = baseMapper.selectById(webLoginUser.getUserId().intValue());
+        return UserResource.builder()
+                .username(webLoginUser.getUserName())
+                .nickName(webLoginUser.getNickName())
+                .remark(user.getRemark())
+                .lastLoginIp(user.getLastLoginIp())
+                .lastLoginTime(user.getLastLoginTime())
+                .createTime(user.getCreateTime())
+                .build();
     }
 }

@@ -5,10 +5,12 @@ import com.pm.common.bean.data.ResponseData;
 import com.pm.common.exception.ServiceException;
 import com.pm.model.web.ro.AuthPwdDto;
 import com.pm.model.web.ro.LoginRo;
+import com.pm.web.bean.UserResource;
 import com.pm.web.constants.AuthConstants;
 import com.pm.web.modular.auth.service.IWebUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +48,13 @@ public class WebUserController {
             return ResponseData.success();
         }
         return ResponseData.success();
+    }
+
+    @GetMapping(AuthConstants.AUTH_RESOURCES_URL)
+    @ApiOperation(value = "获取权限资源(Token)", notes = "获取权限资源")
+    public ResponseData<UserResource> resources() {
+        UserResource resources = iWebUserService.getUserResources();
+        return ResponseData.success(resources);
     }
 
     @PostMapping(AuthConstants.AUTH_MODIFY_PASSWORD_URL)

@@ -1,5 +1,6 @@
 package com.pm.model.website.ro.paper;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,4 +17,8 @@ public class PaperSearchCondition {
 
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
+
+    @JsonIgnore
+    @ApiModelProperty(value = "是否后台查询", hidden = true)
+    private Boolean isWeb;
 }

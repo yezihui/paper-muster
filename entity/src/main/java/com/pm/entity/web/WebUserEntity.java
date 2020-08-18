@@ -56,9 +56,6 @@ public class WebUserEntity implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date lastLoginTime;
 
-    @ApiModelProperty(value = "用户ca序列号", position = 6)
-    private String userSn;
-
     @ApiModelProperty(value = "备注", position = 8)
     private String remark;
 

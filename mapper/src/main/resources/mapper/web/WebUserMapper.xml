@@ -2,4 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pm.mapper.web.WebUserMapper">
 
+    <select id="selectPageByUserId" resultType="com.pm.model.web.vo.system.SystemUserPageVo">
+         select
+        u.id as userId,
+        u.login_name,
+        u.nick_name,
+        GROUP_CONCAT(DISTINCT r.role_name) as roles,
+        u.is_enabled,
+        u.create_time,
+        u.update_time
+        from
+        t_web_user u
+        <where>
+            u.is_delete = 0
+            <if test="condition != null">
+                <if test="condition.loginName != null and condition.loginName != ''">
+                    and u.login_name LIKE CONCAT('%',#{condition.loginName},'%')
+                </if>
+                <if test="condition.isEnabled != null and condition.isEnabled != -1">
+                    and u.is_enabled = #{condition.isEnabled}
+                </if>
+                <if test="condition.createTimeBegin != null and condition.createTimeEnd != null">
+                    and date(u.create_time) BETWEEN date(#{condition.createTimeBegin}) AND
+                    date(#{condition.createTimeEnd})
+                </if>
+            </if>
+        </where>
+        <if test="userId != null">
+            and u.create_user_id = #{userId}
+        </if>
+    </select>
 </mapper>

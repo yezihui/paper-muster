@@ -5,6 +5,7 @@ import com.pm.entity.web.WebUserEntity;
 import com.pm.model.web.ro.AuthPwdDto;
 import com.pm.model.web.ro.LoginRo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.pm.web.bean.UserResource;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,4 +21,6 @@ public interface IWebUserService extends IService<WebUserEntity> {
     void logout();
 
     void modifyPassword(AuthPwdDto param);
+
+    UserResource getUserResources();
 }

@@ -3,7 +3,7 @@
 <mapper namespace="com.pm.mapper.paper.PaperMapper">
 
     <select id="selectPageByCondition" resultType="com.pm.model.website.vo.paper.PaperPageVo">
-        select id, paper_type, paper_no, paper_name, paper_weight, paper_origin, pop_strength, ring_crush,paper_price from t_paper
+        select id, paper_type, paper_no, paper_name, paper_weight, paper_origin, pop_strength, ring_crush,paper_price, create_time from t_paper
         <where>
             <if test="1==1">
                 and is_delete = 0 and is_enabled = 1
@@ -12,7 +12,6 @@
                 <if test="condition.paperName != null and condition.paperName != ''">
                     and paper_name LIKE CONCAT('%',#{condition.paperName},'%')
                 </if>
-
             </if>
         </where>
     </select>

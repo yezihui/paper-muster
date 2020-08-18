@@ -1,6 +1,8 @@
 package com.pm.mapper.paper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pm.entity.paper.SampleApplyEntity;
 
 /**
@@ -12,4 +14,6 @@ import com.pm.entity.paper.SampleApplyEntity;
  * @since 2020-08-18
  */
 public interface SampleApplyMapper extends BaseMapper<SampleApplyEntity> {
+
+    IPage<SampleApplyEntity> selectPageByCondition(Page<SampleApplyEntity> page);
 }
