@@ -18,5 +18,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface WebUserMapper extends BaseMapper<WebUserEntity> {
 
-    IPage<SystemUserPageVo> selectPageByUserId(@Param("page") Page<SystemUserPageVo> page, Long currentUserId, UserSearchCondition condition);
+    IPage<SystemUserPageVo> selectPageByUserId(@Param("page") Page<SystemUserPageVo> page, @Param("userId") Long currentUserId, @Param("condition") UserSearchCondition condition);
 }

@@ -7,7 +7,6 @@
         u.id as userId,
         u.login_name,
         u.nick_name,
-        GROUP_CONCAT(DISTINCT r.role_name) as roles,
         u.is_enabled,
         u.create_time,
         u.update_time

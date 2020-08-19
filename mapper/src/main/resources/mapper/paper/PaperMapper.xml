@@ -3,7 +3,9 @@
 <mapper namespace="com.pm.mapper.paper.PaperMapper">
 
     <select id="selectPageByCondition" resultType="com.pm.model.website.vo.paper.PaperPageVo">
-        select id, paper_type, paper_no, paper_name, paper_weight, paper_origin, pop_strength, ring_crush,paper_price, create_time from t_paper
+        select id, paper_type, paper_name, paper_weight, paper_origin, pop_strength, fold_strength, ring_crush,
+        moisture, IF(is_bottom, concat(paper_price,'起'), paper_price) as paper_price, is_bottom, create_time,
+        update_time from t_paper
         <where>
             <if test="1==1">
                 and is_delete = 0 and is_enabled = 1

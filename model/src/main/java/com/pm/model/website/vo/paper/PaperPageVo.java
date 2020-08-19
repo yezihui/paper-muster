@@ -22,9 +22,6 @@ public class PaperPageVo {
     @ApiModelProperty(value = "纸种", position = 2)
     private String paperType;
 
-    @ApiModelProperty(value = "产品编号", position = 3)
-    private String paperNo;
-
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 
@@ -37,13 +34,26 @@ public class PaperPageVo {
     @ApiModelProperty(value = "耐破指数", position = 7)
     private String popStrength;
 
+    @ApiModelProperty(value = "耐折强度", position = 3)
+    private String foldStrength;
+
     @ApiModelProperty(value = "环压指数", position = 8)
     private String ringCrush;
+
+    @ApiModelProperty(value = "水分", position = 9)
+    private String moisture;
 
     @ApiModelProperty(value = "价格", position = 9)
     private String paperPrice;
 
-    @ApiModelProperty(value = "创建时间", position = 12)
+    @ApiModelProperty(value = "起(是否最低价)", position = 10)
+    private Boolean isBottom;
+
+    @ApiModelProperty(value = "创建时间", position = 14)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
+
+    @ApiModelProperty(value = "更新时间", position = 15)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date updateTime;
 }

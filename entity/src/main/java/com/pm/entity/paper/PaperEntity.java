@@ -38,9 +38,6 @@ public class PaperEntity implements Serializable {
     @ApiModelProperty(value = "纸种", position = 2)
     private String paperType;
 
-    @ApiModelProperty(value = "产品编号", position = 3)
-    private String paperNo;
-
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 
@@ -53,11 +50,20 @@ public class PaperEntity implements Serializable {
     @ApiModelProperty(value = "耐破指数", position = 7)
     private String popStrength;
 
+    @ApiModelProperty(value = "耐折强度", position = 3)
+    private String foldStrength;
+
     @ApiModelProperty(value = "环压指数", position = 8)
     private String ringCrush;
 
+    @ApiModelProperty(value = "水分", position = 9)
+    private String moisture;
+
     @ApiModelProperty(value = "价格", position = 9)
     private String paperPrice;
+
+    @ApiModelProperty(value = "起(是否最低价)", position = 10)
+    private Boolean isBottom;
 
     @ApiModelProperty(value = "状态(0:禁用,1:启用)", position = 10)
     private Boolean isEnabled;
