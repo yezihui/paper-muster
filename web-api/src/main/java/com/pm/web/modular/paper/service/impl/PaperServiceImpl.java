@@ -1,6 +1,7 @@
 package com.pm.web.modular.paper.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -50,6 +51,9 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> impl
         BeanUtil.copyProperties(addRo, paperEntity);
         WebLoginUser loginUser = LoginContext.me().getLoginUser();
         paperEntity.setCreateUserId(loginUser.getUserId());
+        if (ObjectUtil.isNull(paperEntity.getUpdateTime())) {
+            paperEntity.setUpdateTime(DateUtil.date());
+        }
         baseMapper.insert(paperEntity);
     }
 
