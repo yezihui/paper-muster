@@ -4,7 +4,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.pm.common.bean.page.PageInfo;
 import com.pm.common.bean.page.PageQuery;
 import com.pm.entity.paper.SampleApplyEntity;
+import com.pm.entity.paper.SampleApplyTraceEntity;
+import com.pm.model.web.ro.paper.SampleApplyTraceAddRo;
 import com.pm.model.website.ro.paper.SampleApplyRo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +21,10 @@ import com.pm.model.website.ro.paper.SampleApplyRo;
 public interface ISampleApplyService extends IService<SampleApplyEntity> {
 
     PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery pageQuery);
+
+    List<SampleApplyTraceEntity> traceList(Long applyId);
+
+    void addTrace(Long applyId, SampleApplyTraceAddRo traceAddRo);
+
+    void deleteTraceByIds(List<Long> ids);
 }

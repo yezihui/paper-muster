@@ -26,7 +26,6 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode
 @Accessors(chain = true)
-@Builder
 @TableName("t_sample_apply_trace")
 @ApiModel("取样申请跟踪表")
 public class SampleApplyTraceEntity implements Serializable {
@@ -47,7 +46,7 @@ public class SampleApplyTraceEntity implements Serializable {
     private String remark;
 
     @ApiModelProperty(value = "创建用户ID", position = 5)
-    private Integer createUserId;
+    private Long createUserId;
 
     @ApiModelProperty(value = "创建用户名", position = 6)
     private String createUserName;

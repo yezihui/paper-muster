@@ -65,12 +65,11 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> impl
     @Override
     public void update(Long id, PaperAddRo addRo) {
         PaperEntity paperEntity = new PaperEntity();
+        paperEntity.setId(id);
         BeanUtil.copyProperties(addRo, paperEntity);
-        WebLoginUser loginUser = LoginContext.me().getLoginUser();
-        paperEntity.setCreateUserId(loginUser.getUserId());
         if (ObjectUtil.isNull(paperEntity.getUpdateTime())) {
             paperEntity.setUpdateTime(DateUtil.date());
         }
-        baseMapper.insert(paperEntity);
+        baseMapper.updateById(paperEntity);
     }
 }

@@ -40,6 +40,9 @@ public class SampleApplyEntity implements Serializable {
     @ApiModelProperty(value = "取样申请信息", position = 14)
     private String message;
 
+    @ApiModelProperty(value = "申请状态（0：新申请，1：已拒绝，2：已办理）", position = 3)
+    private Integer status;
+
     @ApiModelProperty(value = "创建时间", position = 14)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
