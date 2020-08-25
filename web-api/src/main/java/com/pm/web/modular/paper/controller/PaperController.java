@@ -57,6 +57,13 @@ public class PaperController {
         return ResponseData.success();
     }
 
+    @PostMapping(name = "编辑纸张", path = "/update/{id}")
+    @ApiOperation(value = "编辑纸张")
+    public ResponseData update(@PathVariable(value = "id") Long id, @Valid @RequestBody PaperAddRo addRo) {
+        iPaperService.update(id, addRo);
+        return ResponseData.success();
+    }
+
     @DeleteMapping(name = "批量删除纸张", path = "/delete")
     @ApiOperation(value = "批量删除纸张", notes = "批量删除纸张")
     public ResponseData deleteByIds(@RequestBody List<Long> ids) {

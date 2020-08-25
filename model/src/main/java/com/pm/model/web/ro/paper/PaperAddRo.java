@@ -22,6 +22,10 @@ public class PaperAddRo {
     private String paperType;
 
     @NotBlank
+    @ApiModelProperty(value = "产品编号", position = 4)
+    private String paperNo;
+
+    @NotBlank
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 

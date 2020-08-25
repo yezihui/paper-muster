@@ -61,4 +61,16 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> impl
     public void deleteByIds(List<Long> ids) {
         removeByIds(ids);
     }
+
+    @Override
+    public void update(Long id, PaperAddRo addRo) {
+        PaperEntity paperEntity = new PaperEntity();
+        BeanUtil.copyProperties(addRo, paperEntity);
+        WebLoginUser loginUser = LoginContext.me().getLoginUser();
+        paperEntity.setCreateUserId(loginUser.getUserId());
+        if (ObjectUtil.isNull(paperEntity.getUpdateTime())) {
+            paperEntity.setUpdateTime(DateUtil.date());
+        }
+        baseMapper.insert(paperEntity);
+    }
 }

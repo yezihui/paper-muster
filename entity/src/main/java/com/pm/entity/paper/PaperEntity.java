@@ -38,6 +38,9 @@ public class PaperEntity implements Serializable {
     @ApiModelProperty(value = "纸种", position = 2)
     private String paperType;
 
+    @ApiModelProperty(value = "产品编号", position = 4)
+    private String paperNo;
+
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 
@@ -65,6 +68,10 @@ public class PaperEntity implements Serializable {
     @ApiModelProperty(value = "起(是否最低价)", position = 10)
     private Boolean isBottom;
 
+    @ApiModelProperty(value = "价格更新时间", position = 15)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date updateTime;
+
     @ApiModelProperty(value = "状态(0:禁用,1:启用)", position = 10)
     private Boolean isEnabled;
 
@@ -75,16 +82,11 @@ public class PaperEntity implements Serializable {
     @ApiModelProperty(value = "创建用户ID", position = 12)
     private Long createUserId;
 
-    @ApiModelProperty(value = "修改用户ID", position = 13)
-    private Long updateUserId;
-
     @ApiModelProperty(value = "创建时间", position = 14)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
-    @ApiModelProperty(value = "更新时间", position = 15)
+    @ApiModelProperty(value = "编辑时间", position = 15)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date updateTime;
-
-
+    private Date editTime;
 }

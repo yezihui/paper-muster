@@ -25,4 +25,6 @@ public interface IPaperService extends IService<PaperEntity> {
     void add(PaperAddRo addRo);
 
     void deleteByIds(List<Long> ids);
+
+    void update(Long id, PaperAddRo addRo);
 }

@@ -22,6 +22,9 @@ public class PaperPageVo {
     @ApiModelProperty(value = "纸种", position = 2)
     private String paperType;
 
+    @ApiModelProperty(value = "产品编号", position = 4)
+    private String paperNo;
+
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 

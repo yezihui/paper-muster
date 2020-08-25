@@ -3,7 +3,7 @@
 <mapper namespace="com.pm.mapper.paper.PaperMapper">
 
     <select id="selectPageByCondition" resultType="com.pm.model.website.vo.paper.PaperPageVo">
-        select id, paper_type, paper_name, paper_weight, paper_origin, pop_strength, fold_strength, ring_crush,
+        select id, paper_type, paper_no, paper_name, paper_weight, paper_origin, pop_strength, fold_strength, ring_crush,
         moisture, IF(is_bottom, concat(paper_price,'起'), paper_price) as paper_price, is_bottom, create_time,
         update_time from t_paper
         <where>
@@ -12,7 +12,15 @@
             </if>
             <if test="condition != null">
                 <if test="condition.paperName != null and condition.paperName != ''">
-                    and paper_name LIKE CONCAT('%',#{condition.paperName},'%')
+                    and (paper_type LIKE CONCAT('%',#{condition.paperName},'%')
+                    or paper_name LIKE CONCAT('%',#{condition.paperName},'%')
+                    or paper_weight LIKE CONCAT('%',#{condition.paperName},'%')
+                    or paper_origin LIKE CONCAT('%',#{condition.paperName},'%')
+                    or pop_strength LIKE CONCAT('%',#{condition.paperName},'%')
+                    or fold_strength LIKE CONCAT('%',#{condition.paperName},'%')
+                    or ring_crush LIKE CONCAT('%',#{condition.paperName},'%')
+                    or moisture LIKE CONCAT('%',#{condition.paperName},'%')
+                    or paper_price LIKE CONCAT('%',#{condition.paperName},'%'))
                 </if>
             </if>
         </where>
