@@ -12,6 +12,7 @@ import com.pm.entity.paper.SampleApplyEntity;
 import com.pm.entity.paper.SampleApplyTraceEntity;
 import com.pm.mapper.paper.SampleApplyMapper;
 import com.pm.mapper.paper.SampleApplyTraceMapper;
+import com.pm.model.web.ro.paper.SampleApplySearchCondition;
 import com.pm.model.web.ro.paper.SampleApplyTraceAddRo;
 import com.pm.model.website.ro.paper.SampleApplyRo;
 import com.pm.model.website.vo.paper.PaperPageVo;
@@ -38,9 +39,9 @@ public class SampleApplyServiceImpl extends ServiceImpl<SampleApplyMapper, Sampl
     private SampleApplyTraceMapper sampleApplyTraceMapper;
 
     @Override
-    public PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery pageQuery) {
+    public PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery<SampleApplySearchCondition> pageQuery) {
         Page<SampleApplyEntity> page = PageFactory.createPage(pageQuery, true);
-        IPage<SampleApplyEntity> pageResult = baseMapper.selectPageByCondition(page);
+        IPage<SampleApplyEntity> pageResult = baseMapper.selectPageByCondition(page, pageQuery.getCondition());
         return PageInfoHelper.build(pageResult);
     }
 

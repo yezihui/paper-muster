@@ -6,6 +6,7 @@ import com.pm.common.bean.page.PageQuery;
 import com.pm.entity.paper.SampleApplyEntity;
 import com.pm.entity.paper.SampleApplyTraceEntity;
 import com.pm.model.web.ro.paper.PaperAddRo;
+import com.pm.model.web.ro.paper.SampleApplySearchCondition;
 import com.pm.model.web.ro.paper.SampleApplyTraceAddRo;
 import com.pm.model.website.ro.paper.PaperSearchCondition;
 import com.pm.model.website.ro.paper.SampleApplyRo;
@@ -74,7 +75,7 @@ public class PaperController {
 
     @PostMapping(name = "分页查询取样申请列表", path = "/sampleApply/page")
     @ApiOperation(value = "分页查询取样申请列表")
-    public ResponseData<PageInfo<SampleApplyEntity>> sampleApply(@Valid @RequestBody PageQuery pageQuery) {
+    public ResponseData<PageInfo<SampleApplyEntity>> sampleApply(@Valid @RequestBody PageQuery<SampleApplySearchCondition> pageQuery) {
         PageInfo<SampleApplyEntity> pageInfo = iSampleApplyService.sampleApplyPage(pageQuery);
         return ResponseData.success(pageInfo);
     }

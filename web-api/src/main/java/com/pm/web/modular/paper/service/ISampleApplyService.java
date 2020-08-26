@@ -5,6 +5,7 @@ import com.pm.common.bean.page.PageInfo;
 import com.pm.common.bean.page.PageQuery;
 import com.pm.entity.paper.SampleApplyEntity;
 import com.pm.entity.paper.SampleApplyTraceEntity;
+import com.pm.model.web.ro.paper.SampleApplySearchCondition;
 import com.pm.model.web.ro.paper.SampleApplyTraceAddRo;
 import com.pm.model.website.ro.paper.SampleApplyRo;
 
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public interface ISampleApplyService extends IService<SampleApplyEntity> {
 
-    PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery pageQuery);
+    PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery<SampleApplySearchCondition> pageQuery);
 
     List<SampleApplyTraceEntity> traceList(Long applyId);
 

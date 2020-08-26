@@ -4,5 +4,15 @@
 
     <select id="selectPageByCondition" resultType="com.pm.entity.paper.SampleApplyEntity">
         select * from t_sample_apply
+        <where>
+            <if test="condition != null">
+                <if test="condition.status != null">
+                    and status = #{condition.status}
+                </if>
+                <if test="condition.phone != null and condition.phone != ''">
+                    and phone like concat('%', #{condition.phone}, '%')
+                </if>
+            </if>
+        </where>
     </select>
 </mapper>
