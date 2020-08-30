@@ -21,6 +21,7 @@ public class SampleApplyServiceImpl extends ServiceImpl<SampleApplyMapper, Sampl
     @Override
     public void sampleApply(SampleApplyRo sampleApplyRo) {
         SampleApplyEntity apply = new SampleApplyEntity();
+        apply.setPaperId(sampleApplyRo.getPaperId());
         apply.setMessage(sampleApplyRo.getMessage());
         apply.setPhone(sampleApplyRo.getPhone());
         baseMapper.insert(apply);

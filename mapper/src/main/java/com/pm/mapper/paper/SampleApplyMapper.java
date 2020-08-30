@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.pm.entity.paper.SampleApplyEntity;
 import com.pm.model.web.ro.paper.SampleApplySearchCondition;
+import com.pm.model.web.vo.paper.SampleApplyPageVo;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -17,5 +18,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface SampleApplyMapper extends BaseMapper<SampleApplyEntity> {
 
-    IPage<SampleApplyEntity> selectPageByCondition(@Param("page") Page<SampleApplyEntity> page, @Param("condition") SampleApplySearchCondition condition);
+    IPage<SampleApplyPageVo> selectPageByCondition(@Param("page") Page<SampleApplyPageVo> page, @Param("condition") SampleApplySearchCondition condition);
 }

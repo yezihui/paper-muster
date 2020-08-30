@@ -14,6 +14,7 @@ import com.pm.mapper.paper.SampleApplyMapper;
 import com.pm.mapper.paper.SampleApplyTraceMapper;
 import com.pm.model.web.ro.paper.SampleApplySearchCondition;
 import com.pm.model.web.ro.paper.SampleApplyTraceAddRo;
+import com.pm.model.web.vo.paper.SampleApplyPageVo;
 import com.pm.model.website.ro.paper.SampleApplyRo;
 import com.pm.model.website.vo.paper.PaperPageVo;
 import com.pm.web.bean.WebLoginUser;
@@ -39,9 +40,9 @@ public class SampleApplyServiceImpl extends ServiceImpl<SampleApplyMapper, Sampl
     private SampleApplyTraceMapper sampleApplyTraceMapper;
 
     @Override
-    public PageInfo<SampleApplyEntity> sampleApplyPage(PageQuery<SampleApplySearchCondition> pageQuery) {
-        Page<SampleApplyEntity> page = PageFactory.createPage(pageQuery, true);
-        IPage<SampleApplyEntity> pageResult = baseMapper.selectPageByCondition(page, pageQuery.getCondition());
+    public PageInfo<SampleApplyPageVo> sampleApplyPage(PageQuery<SampleApplySearchCondition> pageQuery) {
+        Page<SampleApplyPageVo> page = PageFactory.createPage(pageQuery, true);
+        IPage<SampleApplyPageVo> pageResult = baseMapper.selectPageByCondition(page, pageQuery.getCondition());
         return PageInfoHelper.build(pageResult);
     }
 

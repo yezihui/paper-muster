@@ -15,6 +15,10 @@ import javax.validation.constraints.NotNull;
 @ApiModel("取样申请Ro")
 public class SampleApplyRo {
 
+    @NotNull(message = "纸张ID不能为空")
+    @ApiModelProperty(value = "纸张ID", position = 1)
+    private Long paperId;
+
     @NotNull(message = "手机号不能为空")
     @ApiModelProperty(value = "手机号", position = 1)
     private String phone;

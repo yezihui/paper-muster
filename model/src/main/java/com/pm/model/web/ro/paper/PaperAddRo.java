@@ -22,6 +22,10 @@ public class PaperAddRo {
     private String paperType;
 
     @NotBlank
+    @ApiModelProperty(value = "纸种英文", position = 2)
+    private String paperTypeEnglish;
+
+    @NotBlank
     @ApiModelProperty(value = "产品编号", position = 4)
     private String paperNo;
 
@@ -30,12 +34,20 @@ public class PaperAddRo {
     private String paperName;
 
     @NotBlank
+    @ApiModelProperty(value = "产品名称英文", position = 4)
+    private String paperNameEnglish;
+
+    @NotBlank
     @ApiModelProperty(value = "克重", position = 5)
     private String paperWeight;
 
     @NotBlank
     @ApiModelProperty(value = "产地", position = 6)
     private String paperOrigin;
+
+    @NotBlank
+    @ApiModelProperty(value = "产地英文", position = 6)
+    private String paperOriginEnglish;
 
     @NotBlank
     @ApiModelProperty(value = "耐破指数", position = 7)

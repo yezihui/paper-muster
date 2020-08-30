@@ -2,15 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pm.mapper.paper.SampleApplyMapper">
 
-    <select id="selectPageByCondition" resultType="com.pm.entity.paper.SampleApplyEntity">
-        select * from t_sample_apply
+    <select id="selectPageByCondition" resultType="com.pm.model.web.vo.paper.SampleApplyPageVo">
+        select tsa.*, tp.paper_name, tp.paper_no, tp.paper_type from t_sample_apply tsa
+        left join t_paper tp on tp.id = tsa.paper_id
         <where>
             <if test="condition != null">
                 <if test="condition.status != null">
-                    and status = #{condition.status}
+                    and tsa.status = #{condition.status}
                 </if>
                 <if test="condition.phone != null and condition.phone != ''">
-                    and phone like concat('%', #{condition.phone}, '%')
+                    and tsa.phone like concat('%', #{condition.phone}, '%')
                 </if>
             </if>
         </where>

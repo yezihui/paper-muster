@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -22,17 +23,26 @@ public class PaperPageVo {
     @ApiModelProperty(value = "纸种", position = 2)
     private String paperType;
 
+    @ApiModelProperty(value = "纸种英文", position = 2)
+    private String paperTypeEnglish;
+
     @ApiModelProperty(value = "产品编号", position = 4)
     private String paperNo;
 
     @ApiModelProperty(value = "产品名称", position = 4)
     private String paperName;
 
+    @ApiModelProperty(value = "产品名称英文", position = 4)
+    private String paperNameEnglish;
+
     @ApiModelProperty(value = "克重", position = 5)
     private String paperWeight;
 
     @ApiModelProperty(value = "产地", position = 6)
     private String paperOrigin;
+
+    @ApiModelProperty(value = "产地英文", position = 6)
+    private String paperOriginEnglish;
 
     @ApiModelProperty(value = "耐破指数", position = 7)
     private String popStrength;
