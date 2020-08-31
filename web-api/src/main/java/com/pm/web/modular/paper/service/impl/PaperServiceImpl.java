@@ -3,6 +3,7 @@ package com.pm.web.modular.paper.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.ReflectUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -18,8 +19,10 @@ import com.pm.model.website.vo.paper.PaperPageVo;
 import com.pm.web.bean.WebLoginUser;
 import com.pm.web.context.LoginContext;
 import com.pm.web.modular.paper.service.IPaperService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -30,6 +33,7 @@ import java.util.List;
  * @author yejx
  * @since 2020-08-18
  */
+@Slf4j
 @Service
 public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> implements IPaperService {
 
@@ -54,6 +58,7 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> impl
         if (ObjectUtil.isNull(paperEntity.getUpdateTime())) {
             paperEntity.setUpdateTime(DateUtil.date());
         }
+        trimObject(paperEntity);
         baseMapper.insert(paperEntity);
     }
 
@@ -62,11 +67,39 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, PaperEntity> impl
         removeByIds(ids);
     }
 
+    /***
+     * 对object中的所有成员变量的值,执行trim操作<br>
+     * 即去掉首尾的空格
+     * @param obj
+     */
+    private void trimObject(Object obj) {
+        try {
+            if (obj == null) {
+                return;
+            }
+            Field[] fieldsList = ReflectUtil.getFields(obj.getClass());
+            for (Field f : fieldsList) {
+                Object vObj = ReflectUtil.getFieldValue(obj, f);
+                if ("java.lang.String".equals(f.getType().getName()) && (vObj instanceof String)) {
+                    String str = (String) vObj;
+                    str = str.trim();
+                    f.setAccessible(true);
+                    f.set(obj, str);
+                }
+            }
+        }catch (Exception e) {
+            log.info("参数去除头尾空格异常 ：{}", e.getMessage());
+        }
+    }
+
     @Override
     public void update(Long id, PaperAddRo addRo) {
         PaperEntity paperEntity = new PaperEntity();
         paperEntity.setId(id);
         BeanUtil.copyProperties(addRo, paperEntity);
+        trimObject(paperEntity);
+        WebLoginUser loginUser = LoginContext.me().getLoginUser();
+        paperEntity.setCreateUserId(loginUser.getUserId());
         if (ObjectUtil.isNull(paperEntity.getUpdateTime())) {
             paperEntity.setUpdateTime(DateUtil.date());
         }
