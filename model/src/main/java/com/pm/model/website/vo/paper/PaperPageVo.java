@@ -59,6 +59,9 @@ public class PaperPageVo {
     @ApiModelProperty(value = "价格", position = 9)
     private String paperPrice;
 
+    @ApiModelProperty(value = "价格英文", position = 9)
+    private String paperPriceEnglish;
+
     @ApiModelProperty(value = "起(是否最低价)", position = 10)
     private Boolean isBottom;
 

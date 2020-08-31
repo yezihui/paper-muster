@@ -4,7 +4,8 @@
 
     <select id="selectPageByCondition" resultType="com.pm.model.website.vo.paper.PaperPageVo">
         select id, paper_type, paper_type_english, paper_no, paper_name, paper_name_english, paper_weight, paper_origin, paper_origin_english,
-         pop_strength, fold_strength, ring_crush, moisture, IF(is_bottom, concat(paper_price,'起'), paper_price) as paper_price, is_bottom, create_time,
+        pop_strength, fold_strength, ring_crush, moisture, IF(is_bottom, concat('USD ',paper_price,'起'), concat('USD ', paper_price)) as paper_price,
+        IF(is_bottom, concat('From $', paper_price, '/t'), concat('$', paper_price, '/t')) as paper_price_english, is_bottom, create_time,
         update_time from t_paper
         <where>
             <if test="1==1">
