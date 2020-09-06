@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-8vbaw0t3alyo0v868.mysql.zhangbei.rds.aliyuncs.com:3306/paper-muster?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
-    username: zbh
-    password: Fk8@Y0c$TAetaXTu
+    url: jdbc:mysql://127.0.0.1:3306/paper-muster?autoReconnect=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true
+    username: root
+    password: paper1234mysql
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 5
@@ -16,7 +16,7 @@ spring:
       connection-test-query: SELECT 1
   #redis配置
   redis:
-    host: r-8vb0y5tdorgc436qun.redis.zhangbei.rds.aliyuncs.com
+    host: 127.0.0.1
     port: 6379
     database: 7
     timeout: 30000
@@ -26,8 +26,8 @@ spring:
     lettuce.pool.max-wait: -1ms
 
 server:
-  port: 8081
+  port: 8881
 
 JwtTokenUtil:
-  jwtKey: yKBD1EhUDiHgz0Oz
+  jwtKey: ersfhgjyyurgfxcf
 

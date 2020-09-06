@@ -3,9 +3,12 @@
 <mapper namespace="com.pm.mapper.paper.PaperMapper">
 
     <select id="selectPageByCondition" resultType="com.pm.model.website.vo.paper.PaperPageVo">
-        select id, paper_type, paper_type_english, paper_no, paper_name, paper_name_english, paper_weight, paper_origin, paper_origin_english,
-        pop_strength, fold_strength, ring_crush, moisture, IF(is_bottom, concat('USD ',paper_price,'起'), concat('USD ', paper_price)) as paper_price,
-        IF(is_bottom, concat('From $', paper_price, '/t'), concat('$', paper_price, '/t')) as paper_price_english, is_bottom, create_time,
+        select id, paper_type, paper_type_english, paper_no, paper_name, paper_name_english, paper_weight, paper_origin,
+        paper_origin_english,
+        pop_strength, fold_strength, ring_crush, moisture, IF(is_bottom, concat('USD ',paper_price,'起'), concat('USD ',
+        paper_price)) as paper_price,
+        IF(is_bottom, concat('From $', paper_price, '/t'), concat('$', paper_price, '/t')) as paper_price_english,
+        is_bottom, create_time,
         update_time from t_paper
         <where>
             <if test="1==1">
@@ -13,10 +16,12 @@
             </if>
             <if test="condition != null">
                 <if test="condition.paperName != null and condition.paperName != ''">
-                    and paper_name LIKE CONCAT('%',#{condition.paperName},'%')
+                    and (paper_name LIKE CONCAT('%',#{condition.paperName},'%')
+                    or paper_name_english LIKE CONCAT('%',#{condition.paperName},'%'))
                 </if>
                 <if test="condition.paperType != null and condition.paperType != ''">
-                    and paper_type LIKE CONCAT('%',#{condition.paperType},'%')
+                    and (paper_type LIKE CONCAT('%',#{condition.paperType},'%')
+                    or paper_type_english LIKE CONCAT('%',#{condition.paperType},'%'))
                 </if>
                 <if test="condition.paperTypeValue != null and condition.paperTypeValue == 0">
                     and paper_type = '牛卡纸'
@@ -28,7 +33,8 @@
                     and paper_type != '牛卡纸' and paper_type != '瓦楞纸'
                 </if>
                 <if test="condition.paperOrigin != null and condition.paperOrigin != ''">
-                    and paper_origin LIKE CONCAT('%',#{condition.paperOrigin},'%')
+                    and (paper_origin LIKE CONCAT('%',#{condition.paperOrigin},'%')
+                    or paper_origin_english LIKE CONCAT('%',#{condition.paperOrigin},'%'))
                 </if>
                 <if test="condition.popStrength != null and condition.popStrength != ''">
                     and pop_strength LIKE CONCAT('%',#{condition.popStrength},'%')
